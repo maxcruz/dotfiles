@@ -1,8 +1,6 @@
 ## Arch Linux installation notes
----
 This process is based on the [installation guide](https://wiki.archlinux.org/index.php/Installation_guide) in the Arch Wiki. This it's just a collection of orderly steps to save time when installing a new Arch system. If you require more details about something please see the Wiki
 ### 1. Installation media
----
 Download the last ISO
 * [https://www.archlinux.org/download/](https://www.archlinux.org/download/)
 
@@ -16,18 +14,15 @@ Load the downloaded ISO in the device
 ```
 Boot with the USB device in UEFI mode
 ### 2. Set keyboard layout 
----
 ``` 
 # loadkeys la-latin1
 ```
 ### 3. Verify that the boot mode is enabled in UEFI
----
 ``` 
 # ls /sys/firmware/efi/efivars 
 ```
 If the directory does not exist, the system is booted in BIOS mode
 ### 4. Connect to the Internet
----
 Wired with DHCP
 ``` 
 # dhcpd 
@@ -43,13 +38,11 @@ Wireless
 # wifi-menu 
 ```
 ### 5. Update system clock 
----
 ``` 
 # timedatectl set-ntp true
 # timedatectl status
 ```
 ### 6. Partitioning 
----
 If UEFI is enabled, create an EFI System Partition for boot
 
 Identify your device
@@ -74,7 +67,6 @@ This configuration is for a disk of 120GB and UEFI mode
 * Root: 40GB
 * Home: ~70GB
 ### 7. Format partitions
----
 Verify your partition table
 ```
 # lsblk
@@ -87,7 +79,6 @@ Format partition (replace X with your device letter)
 # mkfs.ext4 /dev/sd[X]4
 ```
 ### 8. Mount the file system
----
 Always replace X with yout device letter)
 ```
 # swapon /dev/sd[X]2
@@ -98,7 +89,6 @@ Always replace X with yout device letter)
 # mount /dev/sd[X]4 /mnt/home
 ```
 ### 9. Configure mirrors
----
 ```
 # cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 # sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist.backup
@@ -106,35 +96,29 @@ Always replace X with yout device letter)
 # pacman -Syy
 ```
 This file will later be copied to the new system by pacstrap
-
 ### 10. Install the base packages
 ``` 
 # pacstrap /mnt base base-devel 
 ```
 ### 11. Configure base system
----
 #### 11.1 File system
 Generate the fstab file
 ``` 
 # genfstab -U /mnt >> /mnt/etc/fstab 
 ```
-
 #### 11.2 Change to the new system
 ``` 
 # arch-chroot /mnt 
 ```
-
 #### 11.3 Time
 Set timezone (my current zone is America/Bogota)
 ``` 
 # ln -s /usr/share/zoneinfo/America/Bogota /etc/localtime 
 ```
-
 Adjust hardware clock
 ``` 
 # hwclock --systohc --utc
 ```
-
 #### 11.4 Locale
 Uncomment needed localizations in __/etc/locale.gen__, and run:
 ``` 
