@@ -239,5 +239,5 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 #### Gradle not found Android platform-tools binaries
 Enable multilib in /etc/pacman.conf and install
 ```
-# pacman -S 1lib32-libstdc++5 gcc-multilib lib32-zlib
+# pacman -S lib32-libstdc++5 gcc-multilib lib32-zlib
 ```
