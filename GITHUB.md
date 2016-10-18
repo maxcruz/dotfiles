@@ -33,8 +33,11 @@ Copies the contents of the id_rsa.pub file to your clipboard
 ### Authentication Test
 ```
 $ ssh -T git@github.com
-# The response must be "Hi [USER_NAME]! You've successfully authenticated..."
 ```
+The response must be "Hi [USER_NAME]! You've successfully authenticated..."
+
 Setting your username 
+```
 $ git config --global user.name "[USER_NAME]"
 $ git config --global user.email "[EMAIL]"
+```
