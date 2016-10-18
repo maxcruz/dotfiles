@@ -174,6 +174,7 @@ exec xmonad
 * Editor: vim (pacman -Rcs nano)
 * System info: archey3
 * Monitor: inxi lm_sensors net-tools hddtemp demicode
+
 ### Fonts
 Install fonts
 ```
@@ -229,6 +230,7 @@ man() {
     command man "$@"
 }
 ```
+### Troubleshoting
 #### Java interfaces do not appear
 Fix java interfaces, add /etc/profile.d/jre.sh
 ```
