@@ -88,7 +88,7 @@ set laststatus=2
 " Format status line
 set statusline=%#MyBuffer#\ %n\ %*
 set statusline+=%#MyMode#\ %{Mode()}\ %*
-set statusline+=%#MyFile#\ [%F]\ %*
+set statusline+=%#MyFile#\ [%f]\ %*
 set statusline+=%#MyModifiers#\ %h%m%r\ %*
 set statusline+=%#MySpace#%=%*
 set statusline+=%#MyType#\ %{&ft}\ \|\ %{Encode()}\ \|\ %{&ff}\ %*
