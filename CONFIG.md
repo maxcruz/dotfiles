@@ -166,7 +166,7 @@ Create the file ~/.xinitrc
 exec xmonad
 ```
 ### Utilities
-* Images
+* Images: eog
 * Screenshot: scrot
 * Color picker: gpick
 * Terminal: termite
