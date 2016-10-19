@@ -110,14 +110,23 @@ Create an archive to configure all monitors /etc/X11/xorg.conf.d/10-monitor.conf
 ```
 Section "Monitor"
     Identifier  "eDP-1"
-	Option      "Primary" "true"
+    Option      "Primary" "true"
 EndSection
 
 Section "Monitor"
     Identifier  "HDMI-1"
-	Option      "LeftOf" "eDP-1"
-	Option		"Rotate" "left"
+    Option      "LeftOf" "eDP-1"
+    Option	"Rotate" "left"
 EndSection
+```
+If __Option "LeftOf"__ don't works (some Nvidia cards), add the follow configuration
+```
+ Section "Device"
+     Identifier  "Card"
+     Driver      "nvidia"
+     Option      "ConnectedMonitor"   "DVI-I-1, DVI-D-0"
+     Option      "MetaModeOrientation" "DVI-D-0 LeftOf DVI-I-1"
+ EndSection
 ```
 ### Microcode
 For intel processors
