@@ -183,6 +183,7 @@ exec xmonad
 * Editor: vim (pacman -Rcs nano)
 * System info: archey3
 * Monitor: inxi lm_sensors net-tools hddtemp demicode
+* File manager: pcmanfm-gtk3
 
 ### Fonts
 Install fonts
