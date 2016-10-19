@@ -250,3 +250,8 @@ Enable multilib in /etc/pacman.conf and install
 ```
 # pacman -S lib32-libstdc++5 gcc-multilib lib32-zlib
 ```
+#### Genymmotion undefined symbol xcb_wait_for_reply64
+genymotion: symbol lookup error: /usr/lib/libX11.so.6: undefined symbol: xcb_wait_for_reply64
+```
+# mv /opt/genymotion/libxcb.so.1 /opt/genymotion/libxcb.so.1.back 
+```
