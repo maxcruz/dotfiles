@@ -181,6 +181,7 @@ exec xmonad
 * Terminal: termite
 * Browser: surf google-chrome-stable
 * Editor: vim (pacman -Rcs nano)
+* PDF: evince
 * System info: archey3
 * Monitor: inxi lm_sensors net-tools hddtemp demicode
 * File manager: pcmanfm-gtk3
