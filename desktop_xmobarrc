@@ -1,0 +1,19 @@
+Config { 
+    font = "xft:Inconsolata:size=14:antialias=true"
+    , bgColor = "#627484"
+    , fgColor = "#E5E7EA"
+    , position = Top
+    , border = NoBorder
+    , borderColor = "#6986A0"
+    , borderWidth = 0
+    , persistent = True
+    , overrideRedirect = False
+    , commands = [
+                Run Network "ethernet" ["-L","0","-H","32","--normal","green","--high","red","-t","<icon=/home/mcruz/Downloads/ethernet.xpm/> <rx>KB <tx>KB"] 10 
+                , Run Date "%a %b %_d %l:%M" "date" 10
+                , Run StdinReader
+            ]
+        , sepChar = "%"
+        , alignSep = "}{"
+        , template = " %StdinReader% }<fc=#8CDBD8>%date%</fc>{ %ethernet% "
+}
