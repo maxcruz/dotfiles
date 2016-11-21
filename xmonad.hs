@@ -1,13 +1,26 @@
 
 import XMonad
+import XMonad.Hooks.UrgencyHook
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
+import XMonad.Hooks.UrgencyHook
+import XMonad.Util.NamedWindows
+import XMonad.Util.Run
+import qualified XMonad.StackSet as W
 
-myWorkspaces = [ "WEB", "CODE", "SHELL", "CHAT", "MEDIA", "OTHER" ]
+data LibNotifyUrgencyHook = LibNotifyUrgencyHook deriving (Read, Show)
+
+instance UrgencyHook LibNotifyUrgencyHook where
+    urgencyHook LibNotifyUrgencyHook w = do
+        name     <- getName w
+        Just idx <- fmap (W.findTag w) $ gets windowset
+        safeSpawn "notify-send" [show name, "workspace " ++ idx]
+
+myWorkspaces = [ "CODE", "WEB", "SHELL", "CHAT", "MEDIA", "OTHER" ]
 myTerminal = "termite"
 myTitleColor = "#8CDBD8"
 myNormalBorderColor = "#627484"
@@ -18,15 +31,18 @@ myBorderWidth = 5
 
 myManageHook = composeAll
     [ isFullscreen --> doFullFloat
-    , title =? "glxgears" --> doShift (myWorkspaces !! 2)
     , className =? "Surf" --> doShift "WEB"
     , className =? "Gimp" --> doFloat
+    , className =? "Galculator" --> doCenterFloat
     , manageDocks
     ]
- 
+
+main :: IO () 
 main = do
     xmproc <- spawnPipe "xmobar"
-    xmonad $ defaultConfig
+    xmonad 
+        $ withUrgencyHook LibNotifyUrgencyHook
+        $ defaultConfig
         { modMask = mod4Mask
         , terminal = myTerminal
         , focusFollowsMouse = myFocusFollowsMouse
