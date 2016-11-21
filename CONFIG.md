@@ -169,6 +169,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ### Window manager
 ```
 # pacman -S xmonad xmonad-contrib xmobar dmenu
+# pacman -S notify-osd
 ```
 Create the file ~/.xinitrc
 ```
