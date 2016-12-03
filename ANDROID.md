@@ -27,6 +27,12 @@ Unplug and plug the device
 ```
 $ adb devices
 ```
+#### Gradle not found Android platform-tools binaries
+Enable multilib in /etc/pacman.conf and install
+```
+# pacman -S lib32-libstdc++5 gcc-multilib lib32-zlib
+```
+
 ## Lib32 in 64 OS. Use sysyem libstdc++  
 ```
 $ cd $ANDROID_HOME/tools/lib64/libstdc++/
