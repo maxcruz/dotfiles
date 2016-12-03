@@ -27,7 +27,7 @@ Unplug and plug the device
 ```
 $ adb devices
 ```
-#### Gradle not found Android platform-tools binaries
+## Gradle not found Android platform-tools binaries
 Enable multilib in /etc/pacman.conf and install
 ```
 # pacman -S lib32-libstdc++5 gcc-multilib lib32-zlib
