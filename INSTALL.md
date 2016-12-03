@@ -71,10 +71,11 @@ Verify your partition table
 ```
 # lsblk
 ```
+
 Format partition (replace X with your device letter)
 ```
 # mkfs.vfat /dev/sd[X]1
-# mkswap /dev/sd[X]1
+# mkswap /dev/sd[X]2
 # mkfs.ext4 /dev/sd[X]3
 # mkfs.ext4 /dev/sd[X]4
 ```
