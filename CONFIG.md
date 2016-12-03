@@ -70,63 +70,24 @@ Enable and start networkd  the service
 # systemctl enable systemd-networkd
 # systemctl start systemd-networkd
 ```
-### Xorg
-#### Base packages
-```
-# pacman -S xorg-server xorg-server-utils xorg-apps xorg-xinit
-```
 #### Video drivers. 
 NVIDIA video driver
 ```
 # pacman -S nvidia
 ```
-Choose nvidia-libgl, xf86-input-libinput
-
-#### Bumblebee
-Only for new hybrid video cards in new laptops
+Choose nvidia-libgl
+### Wayland
+#### Base packages
 ```
-# pacman -S bumblebee mesa xf86-video-intel nvidia 
+# pacman -S weston
+```
+#### Bumblebee
+Only for new hybrid video cards
+```
+# pacman -S bumblebee 
 # gpasswd -a user bumblebee
 # systemctl enable bumblebee.service
 # systemctl start bumblebee.service
-```
-#### Keyboard
-Create LA keyboard in /etc/X11/xorg.conf.d/00-keyboard.conf  
-```
-Section "InputClass"
-	Identifier "default-keyboard"
-	MatchIsKeyboard "on"
-	Option "XkbLayout" "latam"
-	Option "XkbModel" "pc105"
-	Option "XkbVariant" "deadtilde"
-EndSection
-```
-#### Multi-monitors
-See the names of earch screen
-```
-# xrandr
-```
-Create an archive to configure all monitors /etc/X11/xorg.conf.d/10-monitor.conf
-```
-Section "Monitor"
-    Identifier  "eDP-1"
-    Option      "Primary" "true"
-EndSection
-
-Section "Monitor"
-    Identifier  "HDMI-1"
-    Option      "LeftOf" "eDP-1"
-    Option	"Rotate" "left"
-EndSection
-```
-If __Option "LeftOf"__ don't works (some Nvidia cards), add the follow configuration
-```
- Section "Device"
-     Identifier  "Card"
-     Driver      "nvidia"
-     Option      "ConnectedMonitor"   "DVI-I-1, DVI-D-0"
-     Option      "MetaModeOrientation" "DVI-D-0 LeftOf DVI-I-1"
- EndSection
 ```
 ### Microcode
 For intel processors
@@ -210,51 +171,9 @@ Add hooks in the file /etc/mkinitcpio.conf
 ```
 HOOK="... consolefont keymap"
 ```
-### Display Manager
-```
-# pacman -S lxdm
-$ yaourt -S archlinux-lxdm-theme
-```
-Edit /etc/lxdm/lxdm.conf
-```
-theme=Archlinux
-numlock=1
-```
 ### Enviroment
 Edit /etc/enviroment
 ```
 BROWSER=surf
 EDITOR=vim
-```
-Edit ~/.zshrc
-```
-export LANG=en_US.UTF-8
-```
-For man pages with colors add to ~/.zshrc
-```
-man() {
-    LESS_TERMCAP_md=$'\e[01;31m' \
-    LESS_TERMCAP_me=$'\e[0m' \
-    LESS_TERMCAP_se=$'\e[0m' \
-    LESS_TERMCAP_so=$'\e[01;44;33m' \
-    LESS_TERMCAP_ue=$'\e[0m' \
-    LESS_TERMCAP_us=$'\e[01;32m' \
-    command man "$@"
-}
-```
-### Troubleshoting
-#### Java interfaces do not appear
-Fix java interfaces, add /etc/profile.d/jre.sh
-```
-export _JAVA_AWT_WM_NONREPARENTING=1
-```
-#### Gradle not found Android platform-tools binaries
-Enable multilib in /etc/pacman.conf and install
-```
-# pacman -S lib32-libstdc++5 gcc-multilib lib32-zlib
-```
-#### Genymmotion undefined symbol xcb_wait_for_reply64
-genymotion: symbol lookup error: /usr/lib/libX11.so.6: undefined symbol: xcb_wait_for_reply64
-```
-# mv /opt/genymotion/libxcb.so.1 /opt/genymotion/libxcb.so.1.back 
 ```
