@@ -27,7 +27,7 @@ Unplug and plug the device
 ```
 $ adb devices
 ```
-## Lib 32 troubles when load libraries
+## Lib32 in 64 OS. Use sysyem libstdc++  
 ```
 $ cd $ANDROID_HOME/tools/lib64/libstdc++/
 $ mv libstdc++.so.6 libstdc++.so.6.disabled
