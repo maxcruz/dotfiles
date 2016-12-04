@@ -75,7 +75,7 @@ NVIDIA video driver
 ```
 # pacman -S nvidia
 ```
-Choose nvidia-libgl
+Choose nvidia-libgl, xf86-input-libinput
 ### Wayland
 #### Base packages
 ```
