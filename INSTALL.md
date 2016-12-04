@@ -183,6 +183,7 @@ $ exit
 #### 11.8 Boot
 Boot using systemd
 ```
+# pacman -S intel-ucode
 # bootctl install
 ```
 Get UUID for the root partition
@@ -193,6 +194,7 @@ Edit /boot/loader/entries/arch.conf
 ```
 title   Arch Linux
 linux   /vmlinuz-linux
+initrd  /intel-ucode.img
 initrd  /initramfs-linux.img
 options root=PARTUUID=[UUID_FROM_PREVIOUS_STEP] wr
 ```
