@@ -70,41 +70,17 @@ Enable and start networkd  the service
 # systemctl enable systemd-networkd
 # systemctl start systemd-networkd
 ```
-#### Video drivers. 
-NVIDIA video driver
+#### Gnome 
 ```
-# pacman -S nvidia
-```
-Choose nvidia-libgl, xf86-input-libinput
-### Wayland
-#### Base packages
-```
-# pacman -S weston
+# pacman -S gnome gnome-extra wayland weston
 ```
 #### Bumblebee
 Only for new hybrid video cards
 ```
-# pacman -S bumblebee 
+# pacman -S bumblebee bbswitch nvidia
 # gpasswd -a user bumblebee
 # systemctl enable bumblebee.service
 # systemctl start bumblebee.service
-```
-### Microcode
-For intel processors
-```
-# pacman -S intel-ucode
-```
-Use the initrd option twice in /boot/loader/entries/arch.conf
-```
-title   Arch Linux
-linux   /vmlinuz-linux
-initrd  /intel-ucode.img
-initrd  /initramfs-linux.img
-options ...
-```
-Verify that microcode got updated on boot
-```
-$ dmesg | grep microcode
 ```
 ### Zsh
 ```
