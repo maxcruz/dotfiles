@@ -13,6 +13,9 @@ set autoread
 " Save using sudo for handling permissions
 command W w !sudo tee % > /dev/null
 
+" Format JSON
+ command! FormatJSON %!python -m json.tool
+
 " Turn on wild menu (command line complenion)
 set wildmenu
 
