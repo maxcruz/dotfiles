@@ -70,10 +70,9 @@ Enable and start networkd  the service
 # systemctl enable systemd-networkd
 # systemctl start systemd-networkd
 ```
-#### Gnome 
+#### Xorg 
 ```
-# pacman -S gnome gnome-extra wayland firefox alacarte termite 
-sudo pacman -Rc epiphany gnome-terminal aisleriot accerciser anjuta gnome-builder evolution empathy dconf-editor gnome-contacts four-in-a-row gnome-mines quadrapassel gnome-robots hitori gitg gnome-tetravex tali swell-foop five-or-more gnome-tetravex tali devhelp lightsoff gnome-klotski ipython gnome-mahjongg gnome-taquin iagno 
+# pacman -S ...
 ```
 #### Bumblebee
 Only for new hybrid video cards
