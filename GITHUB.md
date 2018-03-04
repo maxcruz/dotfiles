@@ -36,7 +36,7 @@ $ ssh -T git@github.com
 ```
 The response must be "Hi [USER_NAME]! You've successfully authenticated..."
 
-Setting your username 
+Set username
 ```
 $ git config --global user.name "[USER_NAME]"
 $ git config --global user.email "[EMAIL]"

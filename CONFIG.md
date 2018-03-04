@@ -153,3 +153,12 @@ Edit /etc/enviroment
 BROWSER=surf
 EDITOR=vim
 ```
+
+/etc/profile.d/jre.sh
+_JAVA_AWT_WM_NONREPARENTING=1
+
+mkdir -p .config/termite
+➜  ~ cp /etc/xdg/termite/config ~/.config/termite/config
+
+mkdir -p .config/termite
+➜  ~ cp /etc/xdg/termite/config ~/.config/termite/config
