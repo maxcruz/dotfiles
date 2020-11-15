@@ -95,26 +95,26 @@ set t_Co=256
 
 
 " Format status line
-"set statusline=%#MyBuffer#\ %n\ %*
-"set statusline+=%#MyMode#\ %{Mode()}\ %*
-"set statusline+=%#MyFile#\ [%f]\ %*
-"set statusline+=%#MyModifiers#\ %h%m%r\ %*
-"set statusline+=%#MySpace#%=%*
-"set statusline+=%#MyType#\ %{&ft}\ \|\ %{Encode()}\ \|\ %{&ff}\ %*
-"set statusline+=%#MyCharacter#\ %c:%b\ %*
-"set statusline+=%#MyLine#\ %l/%L\ %*
-"set statusline+=%#MyPercent#\ %p%%\ %*
+set statusline=%#MyBuffer#\ %n\ %*
+set statusline+=%#MyMode#\ %{Mode()}\ %*
+set statusline+=%#MyFile#\ [%f]\ %*
+set statusline+=%#MyModifiers#\ %h%m%r\ %*
+set statusline+=%#MySpace#%=%*
+set statusline+=%#MyType#\ %{&ft}\ \|\ %{Encode()}\ \|\ %{&ff}\ %*
+set statusline+=%#MyCharacter#\ %c:%b\ %*
+set statusline+=%#MyLine#\ %l/%L\ %*
+set statusline+=%#MyPercent#\ %p%%\ %*
 
 " Highlight groups
-"hi MyBuffer ctermbg=240 ctermfg=250
-"hi MyMode ctermfg=235
-"hi MyFile ctermbg=240 ctermfg=015
-"hi MyModifiers ctermbg=102 ctermfg=250
-"hi MySpace ctermbg=102
-"hi MyType ctermbg=102 ctermfg=250
-"hi MyPercent ctermbg=102 ctermfg=250
-"hi MyCharacter ctermbg=240 ctermfg=250
-"hi MyLine ctermbg=242 ctermfg=015
+hi MyBuffer ctermbg=240 ctermfg=250
+hi MyMode ctermfg=235
+hi MyFile ctermbg=240 ctermfg=015
+hi MyModifiers ctermbg=102 ctermfg=250
+hi MySpace ctermbg=102
+hi MyType ctermbg=102 ctermfg=250
+hi MyPercent ctermbg=102 ctermfg=250
+hi MyCharacter ctermbg=240 ctermfg=250
+hi MyLine ctermbg=242 ctermfg=015
 
 " Jump to the last position when reopening a file
 if has("autocmd")

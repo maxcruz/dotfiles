@@ -1,4 +1,0 @@
-nitrogen --restore &
-compton &
-udiskie &
-xsetroot -cursor_name left_ptr &
